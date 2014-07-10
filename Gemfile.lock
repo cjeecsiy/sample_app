@@ -192,7 +192,7 @@ DEPENDENCIES
   guard-spork (= 1.5.0)
   jbuilder (= 1.0.2)
   jquery-rails (= 3.0.4)
-  mysql2
+  mysql2 (~> 0.3.11)
   pg (= 0.15.1)
   rails (= 4.0.4)
   rails_12factor (= 0.0.2)
