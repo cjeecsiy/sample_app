@@ -11,7 +11,7 @@ describe "Static Pages" do
     end
 
     it "should have the base title" do
-      visit '/static-pages/home'
+      visit '/static_pages/home'
       expect(page).to have_title("Ruby on Rails Tutorial Sample App")
     end
 
