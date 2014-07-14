@@ -1,5 +1,8 @@
 # どこまでやったか
 
+(2014/7/15)
+[Chapter5.3.2 Railsのルート](http://railstutorial.jp/chapters/filling-in-the-layout?version=4.0#sec-rails_routes)
+
 (2014/7/11)
 List3.39まで
 Guardは上手く動くけどもGuardfileの内容の一部に問題があり、エラーとなる。
