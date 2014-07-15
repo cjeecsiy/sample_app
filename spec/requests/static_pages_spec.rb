@@ -4,22 +4,15 @@ describe "Static Pages" do
 
   let(:base_title){"Ruby on Rails Tutorial Sample App"}
 
-  describe "Home page" do
+  subject { page }
 
-    it "should have the h1 'Sample App'" do
-      visit root_path
-      expect(page).to have_content('Sample App')
-    end
-
-    it "should have the base title" do
-      visit root_path
-      expect(page).to have_title("Ruby on Rails Tutorial Sample App")
-    end
-
-    it "should not have a custom page title" do
-      visit root_path
-      expect(page).not_to have_title('| Home')
-    end
+  describe "Home page" do 
+    before { visit root_path }
+    
+    it { should have_content('Sample App') }
+    it { should have_title(full_title('')) }
+    it { should_not have_title('| Home') }
+  
   end
   
   describe "Help page" do
