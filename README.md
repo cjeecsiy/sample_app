@@ -1,8 +1,12 @@
 # どこまでやったか
 
+
+(2014/7/16)
+- Chapter5.5
+
 (2014/7/15)
-[Chapter5.3.4 RSpecを洗練させる](http://railstutorial.jp/chapters/filling-in-the-layout?version=4.0#sec-pretty_rspec)
-[Chapter5.3.2 Railsのルート](http://railstutorial.jp/chapters/filling-in-the-layout?version=4.0#sec-rails_routes)
+- [Chapter5.3.4 RSpecを洗練させる](http://railstutorial.jp/chapters/filling-in-the-layout?version=4.0#sec-pretty_rspec)
+- [Chapter5.3.2 Railsのルート](http://railstutorial.jp/chapters/filling-in-the-layout?version=4.0#sec-rails_routes)
 
 (2014/7/11)
 List3.39まで
