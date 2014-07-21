@@ -26,6 +26,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     arel (4.0.2)
+    bcrypt-ruby (3.1.2)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
     builder (3.1.4)
@@ -87,7 +88,7 @@ GEM
     minitest (4.7.5)
     multi_json (1.10.1)
     mysql2 (0.3.16)
-    nokogiri (1.6.2.1)
+    nokogiri (1.6.3)
       mini_portile (= 0.6.0)
     pg (0.15.1)
     polyglot (0.3.5)
@@ -152,7 +153,7 @@ GEM
       multi_json (~> 1.0)
       rubyzip (< 1.0.0)
       websocket (~> 1.0.4)
-    slop (3.5.0)
+    slop (3.6.0)
     spork (1.0.0rc4)
     spork-rails (4.0.0)
       rails (>= 3.0.0, < 5)
@@ -187,6 +188,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt-ruby (= 3.1.2)
   bootstrap-sass (= 2.3.2.0)
   capybara (= 2.1.0)
   childprocess (= 0.3.6)
