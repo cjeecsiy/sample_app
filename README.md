@@ -1,5 +1,17 @@
 # どこまでやったか
 
+(2014/8/1)
+概ね動くが、mailカラムにデータを入れてもらえずにエラーとなっている
+<pre>
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8bMqRD+Ubb/rBeGocP7WmD5pZjtaSPvk+xKZRg5+B20=", "user"=>{"name"=>"koni", "email"=>"hoge@hoge.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
+     (0.2ms)  BEGIN
+       User Exists (1.1ms)  SELECT 1 AS one FROM `users` WHERE `users`.`email` = 'hoge@hoge.com' LIMIT 1
+         SQL (0.8ms)  INSERT INTO `users` (`created_at`, `name`, `password_digest`, `updated_at`) VALUES ('2014-07-31 17:14:03', 'koni', '$2a$10$AyeNd3krSF5ROdbjtQOYUu2G6g8U64N7eKjJmKbT0LjYgtuyUOHSe', '2014-07-31 17:14:03')
+	    (0.7ms)  COMMIT
+</pre>
+
+
 (2014/7/24)
 - Chapter6.4
 
