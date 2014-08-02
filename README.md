@@ -1,7 +1,15 @@
 # どこまでやったか
 
+(2014/8/2)
+7.28まで完了
+
 (2014/8/1)
 概ね動くが、mailカラムにデータを入れてもらえずにエラーとなっている
+->解決
+
+    rake db:migrate RAILS_ENV=development
+
+
 <pre>
 Processing by UsersController#create as HTML
   Parameters: {"utf8"=>"✓", "authenticity_token"=>"8bMqRD+Ubb/rBeGocP7WmD5pZjtaSPvk+xKZRg5+B20=", "user"=>{"name"=>"koni", "email"=>"hoge@hoge.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Create my account"}
