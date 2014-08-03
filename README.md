@@ -1,7 +1,7 @@
 # どこまでやったか
 
-(2014/8/2)
-7.28まで完了
+(2014/8/3)
+Chapter7完了
 
 (2014/8/1)
 概ね動くが、mailカラムにデータを入れてもらえずにエラーとなっている
@@ -18,13 +18,6 @@ Processing by UsersController#create as HTML
          SQL (0.8ms)  INSERT INTO `users` (`created_at`, `name`, `password_digest`, `updated_at`) VALUES ('2014-07-31 17:14:03', 'koni', '$2a$10$AyeNd3krSF5ROdbjtQOYUu2G6g8U64N7eKjJmKbT0LjYgtuyUOHSe', '2014-07-31 17:14:03')
 	    (0.7ms)  COMMIT
 </pre>
-
-
-(2014/7/24)
-- Chapter6.4
-
-(2014/7/16)
-- Chapter5.5
 
 (2014/7/15)
 - [Chapter5.3.4 RSpecを洗練させる](http://railstutorial.jp/chapters/filling-in-the-layout?version=4.0#sec-pretty_rspec)
