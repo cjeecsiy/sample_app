@@ -88,7 +88,7 @@ describe "User Pages" do
 	fill_in "Email", with: new_email
 	fill_in "Password", with: user.password
 	fill_in "Confirm Password", with: user.password
-	click_button "Save Changes" 
+	click_button "Save changes" 
       end
 
       it { should have_title(new_name) }
