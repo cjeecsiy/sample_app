@@ -1,5 +1,19 @@
 # どこまでやったか
 
+(2014/8/20)
+Chapter9
+ハッシュから上手く取り出せていないためにエラーが起きている。
+params[session]の形で取り出せるように修正が必要。
+Chapter8の演習の実装の仕方がよくなかった模様。
+
+    7) User Pages edit with valid information 
+      Failure/Error: sign_in user
+      NoMethodError:
+        undefined method `[' for nil:NilClass
+      # ./app/controllers/sessions_controller.rb:9:in `create'
+      # ./spec/support/utilities.rb:29:in `sign_in'
+      # ./spec/requests/user_pages_spec.rb:67:in `block (3 levels) in <top (required)>']
+
 (2014/8/11)
 Chapter8完了
 
