@@ -8,7 +8,7 @@ describe "User Pages" do
 
     let(:user) { FactoryGirl.create(:user) }
     
-    before do
+    before(:each) do
       sign_in user
       visit users_path
     end
@@ -29,36 +29,39 @@ describe "User Pages" do
         end
       end
     end
-    describe "delete links" do
+  end
+    
+  describe "delete links" do
 
-      it { should_not have_link('delete') }
-       
-      describe "as an admin user" do
-        let(:admin) { FactoryGirl.create(:admin) }
-        before do
-          sign_in admin
-          visit users_path
-        end
-
-        it { should have_link('delete', href: user_path(User.first)) }
-        it "should be able to delete user another user" do
-          expect do
-            click_link('delete', match: :first)
-          end.to change(User, :count).by(-1)
-        end
-
-        it { should_not have_link('delete', href: user_path(admin)) }
+    it { should_not have_link('delete') }
+      
+    describe "as an admin user" do
+      let(:admin) { FactoryGirl.create(:admin) }
+      before do
+        sign_in admin
+        visit users_path
       end
+
+      it { should have_link('delete', href: user_path(User.first)) }
+      it "should be able to delete user another user" do
+        expect do
+          click_link('delete', match: :first)
+        end.to change(User, :count).by(-1)
+      end
+
+      it { should_not have_link('delete', href: user_path(admin)) }
     end
   end
 
-describe "profile page" do
-  let(:user){ FactoryGirl.create(:user) }
-  before { visit user_path(user) }
+
+
+  describe "profile page" do
+    let(:user){ FactoryGirl.create(:user) }
+    before { visit user_path(user) }
   
-  it { should have_content(user.name) }
-  it { should have_title(user.name) }
-end
+    it { should have_content(user.name) }
+    it { should have_title(user.name) }
+  end
 
   describe "signup page" do
     before { visit signup_path }
@@ -79,9 +82,8 @@ end
     
       describe "after submission" do
         before { click_button submit }
-
-	it { should have_title('Sign up') }
-	it { should have_content('error') }
+	      it { should have_title('Sign up') }
+	      it { should have_content('error') }
       end
     end
 
@@ -95,17 +97,16 @@ end
 
       describe "after saving the user" do
         before { click_button submit }
-	let(:user){User.find_by(email: 'user@example.com')}
+	      let(:user){User.find_by(email: 'user@example.com')}
 
         it { should have_link('Sign out')}
-	it { should have_title(user.name) }
-	it { should have_welcome_message('Welcome') }
+	      it { should have_title(user.name) }
+	      it { should have_welcome_message('Welcome') }
       end
 
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
-      
     end
   end
 
@@ -133,10 +134,10 @@ end
       let(:new_email) { "new@example.com" }
       before do
         fill_in "Name", with: new_name
-	fill_in "Email", with: new_email
-	fill_in "Password", with: user.password
-	fill_in "Confirm Password", with: user.password
-	click_button "Save changes" 
+      	fill_in "Email", with: new_email
+	      fill_in "Password", with: user.password
+	      fill_in "Confirm Password", with: user.password
+	      click_button "Save changes" 
       end
 
       it { should have_title(new_name) }
