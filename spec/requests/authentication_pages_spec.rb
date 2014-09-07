@@ -11,6 +11,7 @@ describe "Authentication" do
   end
   
   describe 'signin' do
+
     before { visit signin_path }
  
     describe "with invalid information" do
@@ -26,6 +27,7 @@ describe "Authentication" do
     end
 
     describe "with valid information" do
+
       let(:user) { FactoryGirl.create(:user) }
       before { sign_in user } 
 
@@ -41,12 +43,13 @@ describe "Authentication" do
 	      it { should have_link('Sign in') }
       end
     end
+
   end
 
   describe "authorization" do
     describe "for non-signed-in users" do
-      let(:user) { FactoryGirl.create(:user) }
 
+      let(:user) { FactoryGirl.create(:user) }
       describe "when attempting to visit a protected page" do
         before do
 	        visit edit_user_path(user)
@@ -73,12 +76,12 @@ describe "Authentication" do
 	        before { patch user_path(user) }
 	        specify { expect(response).to redirect_to(signin_path) }
 	      end
-	
 	      describe "visiting the user index" do
 	        before { visit users_path }
 	        it { should have_title('Sign in') }
 	      end
       end
+
     end
     
     describe "as wrong user" do
@@ -109,5 +112,7 @@ describe "Authentication" do
         specify { expect(response).to redirect_to(root_path) }
       end
     end
+
   end
+
 end

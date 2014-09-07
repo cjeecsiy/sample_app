@@ -8,7 +8,7 @@ describe "User Pages" do
 
     let(:user) { FactoryGirl.create(:user) }
     
-    before do
+    before(:each) do
       sign_in user
       visit users_path
     end
@@ -29,9 +29,8 @@ describe "User Pages" do
         end
       end
     end
-  end
-    
-  describe "delete links" do
+  
+    describe "delete links" do
 
     it { should_not have_link('delete') }
       
@@ -52,16 +51,15 @@ describe "User Pages" do
       it { should_not have_link('delete', href: user_path(admin)) }
     end
   end
+end
 
-
-
-  describe "profile page" do
-    let(:user){ FactoryGirl.create(:user) }
-    before { visit user_path(user) }
+describe "profile page" do
+  let(:user){ FactoryGirl.create(:user) }
+  before { visit user_path(user) }
   
-    it { should have_content(user.name) }
-    it { should have_title(user.name) }
-  end
+  it { should have_content(user.name) }
+  it { should have_title(user.name) }
+end
 
   describe "signup page" do
     before { visit signup_path }
