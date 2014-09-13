@@ -51,6 +51,7 @@ describe "User Pages" do
       it { should_not have_link('delete', href: user_path(admin)) }
     end
   end
+
 end
 
 describe "profile page" do
@@ -61,12 +62,12 @@ describe "profile page" do
   it { should have_title(user.name) }
 end
 
-  describe "signup page" do
-    before { visit signup_path }
+describe "signup page" do
+  before { visit signup_path }
 
-    it { should have_content('Sign up') }
-    it { should have_title(full_title('Sign up')) }
-  end
+  it { should have_content('Sign up') }
+  it { should have_title(full_title('Sign up')) }
+end
 
   describe "signup" do
     before { visit signup_path }
