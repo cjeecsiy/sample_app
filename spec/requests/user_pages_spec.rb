@@ -49,8 +49,15 @@ describe "User Pages" do
       end
 
       it { should_not have_link('delete', href: user_path(admin)) }
+
+      describe "Admin user can't delete myself" do
+        before { delete user_path(admin) }
+        it { should_not have_selector('div.alert.alert-error') }
+      end
+
     end
   end
+
 end
 
 describe "profile page" do
@@ -61,12 +68,12 @@ describe "profile page" do
   it { should have_title(user.name) }
 end
 
-  describe "signup page" do
-    before { visit signup_path }
+describe "signup page" do
+  before { visit signup_path }
 
-    it { should have_content('Sign up') }
-    it { should have_title(full_title('Sign up')) }
-  end
+  it { should have_content('Sign up') }
+  it { should have_title(full_title('Sign up')) }
+end
 
   describe "signup" do
     before { visit signup_path }
@@ -134,7 +141,7 @@ end
         fill_in "Name", with: new_name
       	fill_in "Email", with: new_email
 	      fill_in "Password", with: user.password
-	      fill_in "Confirm Password", with: user.password
+	      fill_in "Confirmation", with: user.password
 	      click_button "Save changes" 
       end
 
@@ -144,6 +151,7 @@ end
       specify { expect(user.reload.name).to eq new_name } 
       specify { expect(user.reload.email).to eq new_email } 
     end
+<<<<<<< HEAD
 
     describe "forbidden attributes" do
       let(:params) do
@@ -158,5 +166,20 @@ end
       specify { expect(user.reload).not_to be_admin }
     end
   end
+=======
+>>>>>>> updating-users
 
+    describe "forbidden attributes" do
+      let(:params) do
+        { user: { admin: true, password: user.password,
+          password_confirmation: user.password } }
+      end
+      before do
+        sign_in user, no_capybara: true
+        patch user_path(user), params
+      end
+      specify { expect(user.reload).not_to be_admin }
+    end 
+  end
 end
+
