@@ -49,6 +49,12 @@ describe "User Pages" do
       end
 
       it { should_not have_link('delete', href: user_path(admin)) }
+
+      describe "Admin user can't delete myself" do
+        before { delete user_path(admin) }
+        it { should_not have_selector('div.alert.alert-error') }
+      end
+
     end
   end
 
@@ -159,3 +165,4 @@ end
     end 
   end
 end
+
