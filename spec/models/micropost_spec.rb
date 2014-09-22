@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe Micropost do
-  let(:uset) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user) }
 
   before do
-  	@micropost = Micropost.new(content: "Lorem ipsum", user_id: user.id)
+  	@micropost = Micropost.new(content: "Lorem ipsum", user_id: user_id)
   end
 
   subject { @micropost }
