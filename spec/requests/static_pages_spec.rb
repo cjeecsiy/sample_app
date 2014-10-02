@@ -24,7 +24,7 @@ describe "Static Pages" do
       before do
         FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
         FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet")
-        sign_in users
+        sign_in user
         visit root_path
       end
 
