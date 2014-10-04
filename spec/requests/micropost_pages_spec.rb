@@ -22,11 +22,28 @@ describe "Micropost Pages" do
   end
 
   describe "with valid information" do
-      before { visit root_path }
-  	  before { fill_in 'micropost_content', with: "Lorem ipsum" }  	
+    before { visit root_path }
+    before { fill_in 'micropost_content', with: "Lorem ipsum" } 
+
     it "should create a micropost" do
-  	    expect { click_button "Post" }.to change(Micropost, :count).by(1)
+  	  expect { click_button "Post" }.to change(Micropost, :count).by(1)
   	end
+
+    describe "and a singular form" do
+      before { click_button "Post" }
+
+      it { should have_content('1 micropost') }
+      it { should_not have_content('1 microposts') }
+    end
+
+    describe "and plural form" do
+      before do
+        click_button "Post"
+        fill_in "micropost_content", with: "こにし"
+        click_button "Post"
+      end
+      it { should have_content('2 microposts') }
+    end
   end
 
   describe "micropost destruction" do
