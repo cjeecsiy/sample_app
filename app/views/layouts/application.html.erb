@@ -21,6 +21,12 @@
       <% end %>
       
       <%= yield %>
+
+      <% if signed_in? %>
+        <%= render 'layouts/member_message' %>
+      <% else %>
+        <%= render 'layouts/no_member_message' %>
+      <% end %>
       <%= render 'layouts/footer' %>
       <%= debug(params) if Rails.env.development? %>
     </div>
